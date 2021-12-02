@@ -22,5 +22,5 @@ CircleCI config is set-up in this repo for Continuous Integration and performs t
 - Checkout code and install dependencies using requirements.txt
 - Run source code i.e. payment_engine.py using transactions.csv as input and redirect the output to client_accounts.csv file, output file generated is attached in the output folder
 - Run tests using pytest framework, generate test execution output in a HTML report attached in test-execution-reports folder
-- Run unit testing coverage, output is generated along with the tests run and attached under test-execution-reports -> test-console-logs folder (Note: Python Main function is excluded from the coverage report). Coverage is found to be 95% . Missing Coverage is in the function that writes csv as output.  
+- Run unit testing coverage, output is generated along with the tests run and attached under test-execution-reports -> test-console-logs folder
 
