@@ -3,7 +3,7 @@
 Dummy payment engine that reads a series of transactions from a CSV, updates client accounts, handles disputes and chargebacks, and then outputs the state of clients accounts as a CSV.
 
 
-## Instructions to Run the Source Code and tests based on Python Testing Framework (PyTest):
+## Instructions to Run the Source Code and Tests based on Python Testing Framework (PyTest):
 
 1. Clone the GitHub Repo: https://github.com/pradeepsheokand/paymentengine.git to your local directory
 2. If not already installed, Install Python version > 3.4
