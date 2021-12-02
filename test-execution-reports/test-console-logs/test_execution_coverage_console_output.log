@@ -1,0 +1,93 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.9, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /home/circleci/repo/venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.9.9', 'Platform': 'Linux-5.4.0-1060-aws-x86_64-with-glibc2.31', 'Packages': {'pytest': '6.2.5', 'py': '1.11.0', 'pluggy': '1.0.0'}, 'Plugins': {'metadata': '1.11.0', 'html': '3.1.1', 'cov': '3.0.0'}, 'CI': 'true', 'CIRCLE_PROJECT_USERNAME': 'pradeepsheokand', 'CIRCLE_PROJECT_REPONAME': 'paymentengine', 'CIRCLE_BRANCH': 'main', 'CIRCLE_SHA1': '2a8bb7dbbb8c7d1e614634a49f13f4906a6ac742', 'CIRCLE_REPOSITORY_URL': 'git@github.com:pradeepsheokand/paymentengine.git', 'CIRCLE_BUILD_URL': 'https://circleci.com/gh/pradeepsheokand/paymentengine/1', 'CIRCLE_BUILD_NUM': '1', 'CIRCLE_USERNAME': 'pradeepsheokand', 'CIRCLE_NODE_TOTAL': '1', 'CIRCLE_NODE_INDEX': '0'}
+rootdir: /home/circleci/repo/tests, configfile: pytest.ini
+plugins: metadata-1.11.0, html-3.1.1, cov-3.0.0
+collecting ... collecting 14 items                                                            collected 14 items                                                             
+
+tests/test_payment_engine.py::test_deposit_withdraw_transactions 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 11.5 (test_payment_engine.py:41)
+2021-12-02 18:07:30 [    INFO] client11 available balance: = 2.0 (test_payment_engine.py:42)
+PASSED                                                                   [  7%]
+tests/test_payment_engine.py::test_dispute_transactions 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 9.0 (test_payment_engine.py:58)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 3.0 (test_payment_engine.py:59)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 12.0 (test_payment_engine.py:60)
+PASSED                                                                   [ 14%]
+tests/test_payment_engine.py::test_dispute_with_insufficient_available_balance 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 0.0 (test_payment_engine.py:78)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0 (test_payment_engine.py:79)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 0.0 (test_payment_engine.py:80)
+PASSED                                                                   [ 21%]
+tests/test_payment_engine.py::test_txn_with_dispute_and_resolve 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.0 (test_payment_engine.py:98)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0.0 (test_payment_engine.py:99)
+PASSED                                                                   [ 28%]
+tests/test_payment_engine.py::test_txn_with_chargeback 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 11.0 (test_payment_engine.py:116)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0.0 (test_payment_engine.py:117)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 11.0 (test_payment_engine.py:118)
+PASSED                                                                   [ 35%]
+tests/test_payment_engine.py::test_chargeback_with_insufficient_funds 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.0 (test_payment_engine.py:137)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 2.0 (test_payment_engine.py:138)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 15.0 (test_payment_engine.py:139)
+PASSED                                                                   [ 42%]
+tests/test_payment_engine.py::test_deposit_after_chargeback 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 12.0 (test_payment_engine.py:159)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0.0 (test_payment_engine.py:160)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 12.0 (test_payment_engine.py:161)
+PASSED                                                                   [ 50%]
+tests/test_payment_engine.py::test_withdrawal_after_chargeback 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 12.0 (test_payment_engine.py:181)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0.0 (test_payment_engine.py:182)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 12.0 (test_payment_engine.py:183)
+PASSED                                                                   [ 57%]
+tests/test_payment_engine.py::test_dispute_on_withdrawal 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.5 (test_payment_engine.py:202)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0 (test_payment_engine.py:203)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 13.5 (test_payment_engine.py:204)
+PASSED                                                                   [ 64%]
+tests/test_payment_engine.py::test_dispute_when_txn_not_exist 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.5 (test_payment_engine.py:223)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0 (test_payment_engine.py:224)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 13.5 (test_payment_engine.py:225)
+PASSED                                                                   [ 71%]
+tests/test_payment_engine.py::test_resolve_when_txn_not_exist 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.0 (test_payment_engine.py:244)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 2.0 (test_payment_engine.py:245)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 15.0 (test_payment_engine.py:246)
+PASSED                                                                   [ 78%]
+tests/test_payment_engine.py::test_when_dispute_client_not_match 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 15.0 (test_payment_engine.py:265)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 0 (test_payment_engine.py:266)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 15.0 (test_payment_engine.py:267)
+PASSED                                                                   [ 85%]
+tests/test_payment_engine.py::test_when_resolve_client_do_not_match 
+-------------------------------- live log call ---------------------------------
+2021-12-02 18:07:30 [    INFO] client1 available balance: = 13.0 (test_payment_engine.py:286)
+2021-12-02 18:07:30 [    INFO] client1 held balance: = 2.0 (test_payment_engine.py:287)
+2021-12-02 18:07:30 [    INFO] client1 total balance: = 15.0 (test_payment_engine.py:288)
+PASSED                                                                   [ 92%]
+tests/test_payment_engine.py::test_txn_decimal_precision PASSED          [100%]
+
+============================== 14 passed in 0.72s ==============================
+Name                    Stmts   Miss  Cover   Missing
+-----------------------------------------------------
+src/__init__.py             0      0   100%
+src/payment_engine.py     101      0   100%
+-----------------------------------------------------
+TOTAL                     101      0   100%
