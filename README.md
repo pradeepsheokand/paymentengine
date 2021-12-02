@@ -1,26 +1,25 @@
-Payment Engine
+# Payment Engine
+
 Dummy payment engine that reads a series of transactions from a CSV, updates client accounts, handles disputes and chargebacks, and then outputs the state of clients accounts as a CSV.
 
-Packages to install
-pip install -r requirements.txt
 
-Run program
-Clone the github repo- https://github.com/pradeepsheokand/paymentengine.git and from CLI execute following command to run the engine.
+## Instructions to Run the Source Code and tests based on Python Testing Framework (PyTest):
 
-python payment_engine.py transactions.csv > client_accounts.csv
+1. Clone the GitHub Repo: https://github.com/pradeepsheokand/paymentengine.git to your local directory
+2. If not already installed, Install Python version > 3.4
+3. Create a virtual env using this python command: python -m venv c:\path\to\myenv
+4. Activate above virtual env: \path\to\myenv\Scripts\activate
+5. Install dependencies using this command (requirements.txt file below has complete dependencies for this project): pip install -r /path/to/requirements.txt requirements.txt
+6. Set working directory as PYTHONPATH so that if you have modules in sub-directories then pytest can identify: set PYTHONPATH=\path\to\project;%PYTHONPATH%
+7. Run this command to execute source code: python src/payment_engine.py src/transactions.csv > output/client_accounts.csv
+8. Run this command to execute tests: pytest -vv testfactorialcalculator.py --html=reports/testreport.html
+9. Run this command to find unit testing coverage: coverage run --source=src/ -m pytest -v tests/ && coverage report -m
 
-Input file: transactions.csv
-
-Output file: client_accounts.csv (Output is generated on the stdout. In the command above it is redirected to client_accounts.csv file)
-
-Instructions to Run the Python Testing Framework (PyTest):
-
-Clone the GitHub Repo: https://github.com/pradeepsheokand/paymentengine.git to your local directory
-If not already installed, Install Python version > 3.4
-Create a virtual env using this python command: python -m venv c:\path\to\myenv
-Activate above virtual env: \path\to\myenv\Scripts\activate
-Install dependencies using this command (requirements.txt file below has complete dependencies for this project): pip install -r /path/to/requirements.txt requirements.txt
-Set working directory as PYTHONPATH so that if you have modules in sub-directories then pytest can identify: set PYTHONPATH=\path\to\project;%PYTHONPATH%
-Run this command to execute tests: pytest -vv testfactorialcalculator.py --html=reports/testreport.html
-Run this command to find unit testing coverage: coverage run --source=src/ -m pytest -v tests/ && coverage report -m
+## Continuous Integration :
+CircleCI config is set-up in this repo for Continuous Integration and performs these steps (results from the circleci build runs are attached in the output and test-execution-reports folders):
+- Spin up a VM (ubuntu machine) and build a docker image with python 3.9 version installed on it
+- Checkout code and install dependencies using requirements.txt
+- Run source code i.e. payment_engine.py using transactions.csv as input and redirect the output to client_accounts.csv file, output file generated is attached in the output folder
+- Run tests using pytest framework, generate test execution output in a HTML report attached in test-execution-reports folder
+- Run unit testing coverage, output is generated along with the tests run and attached under test-execution-reports -> test-console-logs folder (Note: Python Main function is excluded from the coverage report). Coverage is found to be 95% . Missing Coverage is in the function that writes csv as output.  
 
