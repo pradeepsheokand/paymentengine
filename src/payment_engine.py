@@ -174,7 +174,7 @@ class PaymentEngine:
 
 
 if __name__ == '__main__': # pragma: no cover
-    client_account_csv = 'src/client_accounts.csv'
+    client_account_csv = 'src/clients_existing_accounts_balances.csv'
     try:
         transactions_csv = sys.argv[1]
     except IndexError:
