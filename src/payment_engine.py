@@ -159,7 +159,7 @@ class PaymentEngine:
                 client_data = self.clients[txn_data["client"]]
                 client_data.chargeback(client_txn_data["amount"], client_txn_data["txn"])
 
-    def write_results(self): # pragma: no cover
+    def write_results(self):
         header = ["client", "available", "held", "total", "locked"]
         self.output_file = csv.DictWriter(sys.stdout, header)
         self.output_file.writeheader()
