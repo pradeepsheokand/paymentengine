@@ -1,1 +1,51 @@
+# Python CircleCI 2.0 configuration file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.9
 
+    working_directory: ~/repo
+
+    steps:
+      # Step 1: obtain repo from GitHub
+      - checkout
+      # Step 2: create virtual env and install dependencies
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+            
+      # Step 3: run source code
+      - run:
+          name: run code
+          command: |
+            . venv/bin/activate
+            python src/payment_engine.py src/transactions.csv > output/client_accounts.csv
+            
+      # Step 4: run linter and tests
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            pytest -v tests/test_payment_engine.py --html=test-execution-reports/testsummaryreport.html --self-contained-html > test-execution-reports/test-console-logs/testconsole.log
+      - run:
+          name: run coverage
+          command: |
+            . venv/bin/activate
+            coverage run --source=src/ -m pytest -v tests/ && coverage report -m
+              
+         
+      - store_artifacts:
+          path: output/client_accounts.csv
+          destination: output
+          
+      - store_artifacts:
+          path: test-execution-reports/test-console-logs/testconsole.log
+          destination: test-execution-reports/test-console-logs
+          
+      - store_artifacts:
+          path: test-execution-reports/testsummaryreport.html
+          destination: test-execution-reports
